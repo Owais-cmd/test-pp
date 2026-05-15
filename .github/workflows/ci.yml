@@ -1,4 +1,4 @@
-name : Fastapi CI
+name: Fastapi CI
 
 on:
   push:
@@ -11,25 +11,24 @@ on:
       - main
       - master
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      -name: Checkout code
-       uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      -name: Setup Python
-       uses: actions/setup-python@v5
-       with:
-          python-version: '3.11'
-      
-      -name: Install dependencies
-       run: |
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      
-      -name : Run tests
-       run: |
+
+      - name: Run tests
+        run: |
           pytest
